@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+<body class="bg-dark">
+    <div class="col-7 d-flex flex-row justify-content-between mx-auto p-5">
+        <form action="/dojos/add_dojo" method="post" class="bg-dark text-white p-3 rounded">
+            <h1 class="text-primary">Add New Dojo</h1>
+            <div class="col" style="margin-left: 15px;">
+                <label for="name" class="row">Name:</label>
+                <input type="text" name="name" id="name" class="row" style="margin-top: 5px;">
+            </div>
+            <input type="submit" value="Add Dojo" class="btn btn-primary mt-3">
+        </form>
+        <div class="bg-dark text-white p-3 rounded">
+            <h1 class="text-primary">All Dojos</h1>
+            {% for dojo in dojos %}
+            <div class="mb-2" style="text-align: center;">
+                <a href="/dojos/{{dojo.id}}" class="text-warning text-decoration-none"><td>{{dojo.name}}</td></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-6 mx-auto" style="text-align: start;">
+        <a href="/ninjas" style="margin-left: 10px;">Add Ninja</a>
+    </div>
+</body>
+</html>

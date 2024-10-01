@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="flex justify-center col-5 mx-auto">
+        <form action="/user" method="post" class="bg-dark text-white p-5 rounded">
+            <h1 class="text-warning ">Dojo Survey</h1>
+            <div class="form-group p-1">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="form-control mt-2">
+            </div>
+            <div class="form-group p-1">
+                <label for="location">Dojo Location:</label>
+                <select name="location" id="location" class="form-control mt-2">
+                    <option value="choose">***Choose One***</option>
+                    <option value="Tampa Bay">Tampa Bay</option>
+                    <option value="Denver">Denver</option>
+                    <option value="Online">Online</option>
+                    <option value="San Francisco">San Francisco</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                </select>
+            </div>
+            <div class="form-group p-1">
+                <label for="language">Favorite Language:</label>
+                <select name="language" id="language" class="form-control mt-2 text-primary">
+                    <option value="choose" class="text-dark">***Choose One***</option>
+                    <option value="HTML">HTML</option>
+                    <option value="JS">JavaScript</option>
+                    <option value="C#">C#</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <div>
+                <p class="m-0 mt-3">Do you have any coding experience?</p>
+                <div class="form-check">                
+                    <input class="form-check-input" type="checkbox" id="experience">
+                    <label class="form-check-label" for="checkboxbonus">Yes</label>
+                </div>
+                <div class="form-check">                
+                    <input class="form-check-input" type="checkbox" id="experience">
+                    <label class="form-check-label" for="checkboxbonus">No</label>
+                </div>
+            </div>
+            <div>
+                <p class="m-0 mt-3">Do you like to read?</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="books">
+                    <label class="form-check-label" for="radiobonus">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="books">
+                    <label class="form-check-label" for="radiobonus">No</label>
+                </div>
+            </div>
+            <div class="form-group mt-3 p-1">
+                <label for="comments">Comments:</label>
+                <textarea name="comments" cols="30" rows="10" class="form-control mt-2"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-warning mt-3">
+        </form>
+    </div>
+</body>
+</html>

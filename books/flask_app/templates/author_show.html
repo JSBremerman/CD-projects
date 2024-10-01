@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Author Show</title>
+</head>
+<body class="bg-dark">
+    <div class="col-9 d-flex flex-row justify-content-between mx-auto p-5">
+        <div class="bg-dark">
+            <h1 class="text-warning">{{author.first_name}}'s Favorites</h1>
+            <table class="table-dark text-white table striped table-bordered table-hover mt-4">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Number of Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in author.fav_books %}
+                    <tr>
+                        <td class="text-white">{{book.title}}</td>
+                        <td class="text-white">{{book.num_of_pages}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <form action="/authors/add_fav_book" class="bg-dark" method="post">
+            <input type="hidden" name="author_id" value="{{author.id}}">
+            <h1 class="text-warning">Add to Favorites:</h1>
+            <div class="row mt-4">
+                <label for="book" class="col text-white">Book:</label>
+                <select name="book_id" class="col" style="margin-right: 15px;">
+                {% for book in book_id %}
+                    <option value="{{book.id}}">{{book.title}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <input type="submit" class="btn btn-warning mt-3" value="Add">
+        </form>
+    </div>
+    <a href="/authors" class="text-warning text-decoration-none" style="margin-left: 16%;">Home</a>
+</body>
+</html>

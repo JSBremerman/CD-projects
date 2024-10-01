@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>Sasquatch Websighting</title>
+</head>
+<body class="col-10 mx-auto">
+    <div class="d-flex justify-content-between">
+        <h1>Sasquatch Websighting</h1>
+        <div>
+            <h3 style="text-align: end;">{{user.first_name}} {{user.last_name}}</h3>
+            <div class="btn-group-vertical" style="width: 200px; margin-left: 10%; align-items: end;">
+                <a href="/dashboard"><button class="btn btn-primary">Dashboard</button></a>
+                <a href="/logout"><button class="btn btn-primary mt-1">Logout</button></a>
+            </div>
+        </div>
+    </div>
+    <div>
+    {% for sighting in sightings %}
+        <h2>{{sighting.location}} on {{sighting.date.strftime('%B %d, %Y')}}</h2>
+        <h4>What Happened:</h4>
+        <p>{{sighting.info}}</p>
+        <p>{{sighting.num_of_squatches}}</p>
+        <p>Reported by: {{sighting.user.first_name}} {{sighting.user.last_name}}</p>
+    {% endfor %}
+    </div>
+</body>
+</html>
